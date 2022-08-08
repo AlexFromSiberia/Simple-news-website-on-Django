@@ -1,0 +1,109 @@
+
+body {
+    background: #2c2c2c;
+}
+
+aside {
+    background: #181818;
+    float: left;
+    width: 25%;
+    padding: 2.5%;
+    height:100vh;
+    color:#fff;
+    border-right: 5px solid #4d4d4d;
+    position: fixed;
+}
+
+aside img {
+    width: 80px;
+    float: left;
+}
+
+aside .logo {
+    font-size:30px;
+    margin-left: 10px;
+    font-weight: bold;
+    position: relative;
+    top: 40px;
+}
+
+aside h3 {
+    margin-top: 80px;
+}
+
+aside a {
+    text-decoration-line: none;
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside ul li {
+    color: #fff;
+    display: block;
+    margin-top: 20px;
+    transition: transform .5s ease;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+    transform: scale3d(1.1, 1.1, 1.1);
+}
+
+.article {
+    border: 1px solid #696868;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+main .features {
+    float: right;
+    color: #fff;
+    text-align: center;
+    width: 80%;
+}
+
+main .features p,h1, h2, h3 {
+    max-width: 700px;
+    margin: 20px auto;
+    text-align: justify;
+}
+
+.main_page {
+    border: 1px solid #696868;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.main_page li {
+    text-align: left;
+}
+
+main .features h4 {
+    text-align: left;
+
+}
+
+main .features h1 {
+    font-size: 50px;
+    color: #f5c236;
+    text-align: center;
+}
+
+.add-new-article{
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.registration {
+    width: 400px;
+    margin: 20px auto;
+    color: #fff;
+    _background: #7f7f7f;
+}
+.registration label {
+    font-size: 30px;
+}

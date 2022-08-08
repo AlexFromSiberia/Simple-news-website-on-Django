@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+
+{% block title %}-Add a news article-{% endblock title %}
+
+{% block content %}
+    <div class='features'>
+        <h1>Add a news article</h1>
+        <form method="post" class="add-new-article">
+            {%csrf_token %}
+                <h4>Title:</h4>
+                {{ form.title }}<br>
+                <h4>Rubric:</h4>
+                {{ form.rubric }}<br>
+                <h4>Full text:</h4>
+                {{ form.text }}<br>
+                <h4>Date:</h4>
+                {{ form.date }}<br>
+                <p style="color:red">{{ error }}</p>
+            <button class="btn btn-success" type="submit"> It looks fine. Add my article! </button>
+        </form>
+    </div>
+{% endblock content %}
