@@ -1,5 +1,4 @@
 from django.shortcuts import render, reverse, redirect
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .forms import NewUserForm
 from django.contrib import messages

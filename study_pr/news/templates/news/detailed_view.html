@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class='features'>
-        <h1> {{ article.title }} </h1><br>
+        <h1> {{ article.title }} </h1>
         <p> <strong>Rubric: </strong> {{ article.rubric }} </p>
         <p> {{ article.text }} </p>
         <p> {{ article.date }} </p>
@@ -18,5 +18,8 @@
             <a href="{% url 'news_index' %}" class="btn btn-warning"> Back to the news roll </a>
             <p> <small style="color: red">***Please login, to be able to update and delete articles</small> </p>
         {% endif %}
+        <br>
+        <br>
     </div>
 {% endblock content %}
+

@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from .models import NewsArticles
+from .models import NewsArticles, Rubric
 from .forms import AddArticleForm
 from django.views.generic import DetailView, UpdateView, DeleteView
-from .models import Rubric
-
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
 def news_index(request):
     rubrics = Rubric.objects.all()
@@ -42,7 +41,19 @@ class ArticleUpdate(UpdateView):
     success_url = reverse_lazy("news_index")
 
 
-class ArticleDelete(DeleteView):
+class ArticleDelete(DeleteView, PermissionRequiredMixin):
     model = NewsArticles
     success_url = '/news/'
     template_name = 'news/article_delete.html'
+    permission_required = 'news.can_delete_news_article'
+
+
+def by_rubric(request, rubric_id):
+    news_by_rubric = NewsArticles.objects.filter(rubric=rubric_id)
+    rubrics = Rubric.objects.all()
+    current_rubric = Rubric.objects.get(pk=rubric_id)
+    context = {'news_by_rubric': news_by_rubric,
+               'rubrics': rubrics,
+               'current_rubric': current_rubric,
+               }
+    return render(request, 'news/by_rubric.html', context)

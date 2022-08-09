@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+
+{% block title %}-Rubric {{current_rubric}} -{% endblock title %}
+
+{% block content %}
+<div class="features">
+    <div class="news_roll">
+        <h2>All news in "{{current_rubric}}" rubric: </h2>
+        {% if news_by_rubric %}
+            {% for item in news_by_rubric %}
+                <div class='article'>
+                    <h2> {{item.title}}</h2>
+                    <p><strong> Rubric: </strong> {{item.rubric}}</p>
+                    <p>{{item.date}}</p>
+                    <p><strong> Written by: </strong> {{item.author}}</p>
+                    <a href="{% url 'DetailView' item.id %}" class="btn btn-warning"> Read full article </a>
+                    <br>
+                    <br>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
+
