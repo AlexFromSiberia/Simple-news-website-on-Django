@@ -14,7 +14,7 @@ class Rubric(models.Model):
 class NewsArticles(models.Model):
     title = models.CharField('name', max_length=100)
     text = models.TextField('full_text')
-    date = models.DateField('Date')
+    date = models.DateField('Date', auto_now_add=True)
 
     author = models.ForeignKey(User, on_delete=models.PROTECT,
                                help_text="Select the author",
@@ -31,9 +31,6 @@ class NewsArticles(models.Model):
 
     def get_absolute_url(self):
         return f'/news/{self.id}'
-
-    # def display_author(self):
-    #     return f"{self.author.author_name}"
 
     class Meta:
         verbose_name = "News article"

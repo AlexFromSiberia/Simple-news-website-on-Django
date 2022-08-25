@@ -5,9 +5,9 @@ from .forms import AddArticleForm
 from django.views.generic import DetailView, UpdateView, DeleteView
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
+
 def news_index(request):
     rubrics = Rubric.objects.all()
-
     news = NewsArticles.objects.all()
     context = {'context': news, 'rubrics': rubrics}
     return render(request, 'news/news_index.html', context)
@@ -34,11 +34,12 @@ class ArticleDetailView(DetailView):
     context_object_name = 'article'
 
 
-class ArticleUpdate(UpdateView):
+class ArticleUpdate(UpdateView, PermissionRequiredMixin):
     model = NewsArticles
     template_name = 'news/update_an_article.html'
     form_class = AddArticleForm
     success_url = reverse_lazy("news_index")
+    permission_required = 'news.can_delete_news_article'
 
 
 class ArticleDelete(DeleteView, PermissionRequiredMixin):
