@@ -15,6 +15,7 @@ class NewsArticles(models.Model):
     title = models.CharField('name', max_length=100)
     text = models.TextField('full_text')
     date = models.DateField('Date', auto_now_add=True)
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', null=True, blank=True)
 
     author = models.ForeignKey(User, on_delete=models.PROTECT,
                                help_text="Select the author",
