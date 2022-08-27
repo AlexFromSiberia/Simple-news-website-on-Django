@@ -16,12 +16,10 @@ class NewsArticles(models.Model):
     text = models.TextField('full_text')
     date = models.DateField('Date', auto_now_add=True)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', null=True, blank=True)
-
     author = models.ForeignKey(User, on_delete=models.PROTECT,
                                help_text="Select the author",
                                verbose_name="Author",
                                null=True, blank=True)
-
     rubric = models.ForeignKey('Rubric', on_delete=models.PROTECT,
                                help_text="Choose the rubric",
                                verbose_name="Rubric",

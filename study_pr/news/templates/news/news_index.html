@@ -3,23 +3,25 @@
 {% block title %}-All news-{% endblock title %}
 
 {% block content %}
-<div class="features">
-    <div class="news_roll">
-        <h1>Main news page</h1>
-        {%for item in context %}
-            <div class='article'>
-                <h2> {{item.title}}</h2>
-                <p><strong>Rubric: </strong> {{item.rubric}}</p>
-                <p>{{item.date}}</p>
-                <p><strong>Written by: </strong> {{item.author}}</p>
-                <a href="{% url 'DetailView' item.id %}" class="btn btn-warning"> Read full article </a>
-                <br>
-                <br>
-            </div>
-        {%endfor%}
-        <br>
-        <br>
+    <div class="features">
+        <div class="news_roll">
+            <h1>Main news page</h1>
+            {%for item in context %}
+                <div class='article'>
+                    <h2> {{item.title}}</h2>
+                    <p><strong>Rubric: </strong> {{item.rubric}}</p>
+                    <img src="{{ item.photo.url }}" width ="700">
+                    <p>{{item.text|linebreaks|truncatewords:50}}</p>
+                    <p><strong>Published:</strong> {{item.date}}  ({{item.date|timesince}} ago )</p>
+                    <p><strong>Written by: </strong> {{item.author}}</p>
+                    <a href="{% url 'DetailView' item.id %}" class="btn btn-warning"> Read full article </a>
+                    <br>
+                    <br>
+                </div>
+            {%endfor%}
+            <br>
+            <br>
+        </div>
     </div>
-</div>
 {% endblock content %}
 
