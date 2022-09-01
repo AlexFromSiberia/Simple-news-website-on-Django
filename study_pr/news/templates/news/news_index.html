@@ -1,15 +1,25 @@
 {% extends "main/base.html" %}
 
-{% block title %}-All news-{% endblock title %}
+{% block title %}
+    {% if current_rubric %}
+        -Rubric {{current_rubric}} -
+    {% else %}
+        -All news-
+    {%  endif %}
+{% endblock title %}
 
 {% block content %}
     <div class="features">
         <div class="news_roll">
-            <h1>Main news page</h1>
-            {%for item in context %}
+            {% if current_rubric %}
+                <h1>All news in "{{current_rubric}}" rubric: </h1>
+            {% else %}
+                <h1>All news</h1>
+            {%  endif %}
+            {%for item in news %}
                 <div class='article'>
                     <h2> {{item.title}}</h2>
-                    <p><strong>Rubric: </strong> {{item.rubric}}</p>
+                    <p><strong>Rubric: </strong><a href="{% url 'by_rubric' item.rubric_id %}"> {{item.rubric}}</a></p>
                     <img src="{{ item.photo.url }}" width ="700">
                     <p>{{item.text|linebreaks|truncatewords:50}}</p>
                     <p><strong>Published:</strong> {{item.date}}  ({{item.date|timesince}} ago )</p>

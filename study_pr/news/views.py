@@ -9,7 +9,18 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 def news_index(request):
     rubrics = Rubric.objects.all()
     news = NewsArticles.objects.all()
-    context = {'context': news, 'rubrics': rubrics}
+    context = {'news': news,
+               'rubrics': rubrics}
+    return render(request, 'news/news_index.html', context)
+
+
+def by_rubric(request, pk):
+    rubrics = Rubric.objects.all()
+    news = NewsArticles.objects.filter(rubric_id=pk)
+    current_rubric = Rubric.objects.get(id=pk)
+    context = {'news': news,
+               'rubrics': rubrics,
+               'current_rubric': current_rubric, }
     return render(request, 'news/news_index.html', context)
 
 
@@ -49,12 +60,4 @@ class ArticleDelete(DeleteView, PermissionRequiredMixin):
     permission_required = 'news.can_delete_news_article'
 
 
-def by_rubric(request, rubric_id):
-    news_by_rubric = NewsArticles.objects.filter(rubric=rubric_id)
-    rubrics = Rubric.objects.all()
-    current_rubric = Rubric.objects.get(pk=rubric_id)
-    context = {'news_by_rubric': news_by_rubric,
-               'rubrics': rubrics,
-               'current_rubric': current_rubric,
-               }
-    return render(request, 'news/by_rubric.html', context)
+

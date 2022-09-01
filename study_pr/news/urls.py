@@ -9,7 +9,7 @@ urlpatterns = [
     path('<int:pk>', views.ArticleDetailView.as_view(), name='DetailView'),
     path('update/<int:pk>/', views.ArticleUpdate.as_view(), name='ArticleUpdate'),
     path('delete/<int:pk>/', views.ArticleDelete.as_view(), name='ArticleDelete'),
-    path('by_rubric/<int:rubric_id>/', views.by_rubric, name='by_rubric'),
+    path('by_rubric/<int:pk>/', views.by_rubric, name='by_rubric'),
 
 ]
 

@@ -65,7 +65,7 @@
                         <h4>News rubrics:</h4>
                         <ul>
                             {%for rubric in rubrics%}
-                                <li><a href="{% url 'by_rubric' rubric.pk %}"> - {{rubric.name}}</a></li>
+                                <li><a href="{% url 'by_rubric' rubric.pk %}"> - {{rubric.name}} ({{rubric.newsarticles_set.count}})</a></li>
                             {%endfor%}
                         </ul>
                     {% endif %}

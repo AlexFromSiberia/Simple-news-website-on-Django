@@ -12,11 +12,14 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'main/about.html')
+    rubrics = Rubric.objects.all()
+    context = {'rubrics': rubrics}
+    return render(request, 'main/about.html', context)
 
 
 def contacts(request):
-    context = {'something': 'some_what'}
+    rubrics = Rubric.objects.all()
+    context = {'rubrics': rubrics}
     return render(request, 'main/contacts.html', context)
 
 
