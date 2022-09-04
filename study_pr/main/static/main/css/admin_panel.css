@@ -1,0 +1,33 @@
+#header{
+    background: #2c2c2c;
+}
+
+#branding h1{
+    color: #f5c236;
+    font-family: Roboto;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: #2c2c2c;
+    color: #f5c236;
+}
+
+a.section:link, a.section:visited {
+    color: #f5c236;
+    text-decoration: none;
+}
+
+div.breadcrumbs {
+    background: #2c2c2c;
+    color: #f5c236;
+}
+
+#content-related .module h2 {
+    background: #2c2c2c;
+    color: #f5c236;
+}
+
+body {
+    background: #06060633;
+    }
+

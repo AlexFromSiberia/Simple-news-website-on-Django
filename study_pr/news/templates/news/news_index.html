@@ -16,7 +16,10 @@
             {% else %}
                 <h1>All news</h1>
             {%  endif %}
-            {%for item in news %}
+
+            {% include "main/paginator.html" %}
+
+            {%for item in page_obj %}
                 <div class='article'>
                     <h2> {{item.title}}</h2>
                     <p><strong>Rubric: </strong><a href="{% url 'by_rubric' item.rubric_id %}"> {{item.rubric}}</a></p>
@@ -30,6 +33,7 @@
                 </div>
             {%endfor%}
             <br>
+            {% include "main/paginator.html" %}
             <br>
         </div>
     </div>

@@ -4,23 +4,29 @@ from .models import NewsArticles, Rubric
 from .forms import AddArticleForm
 from django.views.generic import DetailView, UpdateView, DeleteView
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.core.paginator import Paginator
 
 
 def news_index(request):
+    # add a join for 'rubric'
+    all_news = NewsArticles.objects.select_related('rubric').all()
     rubrics = Rubric.objects.all()
-    news = NewsArticles.objects.all()
-    context = {'news': news,
-               'rubrics': rubrics}
+    paginator = Paginator(all_news, 3)
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
+    context = { 'rubrics': rubrics, 'page_obj': page_obj}
     return render(request, 'news/news_index.html', context)
 
 
 def by_rubric(request, pk):
+    # add a join for 'rubric'
+    all_news = NewsArticles.objects.filter(rubric_id=pk).select_related('rubric')
     rubrics = Rubric.objects.all()
-    news = NewsArticles.objects.filter(rubric_id=pk)
     current_rubric = Rubric.objects.get(id=pk)
-    context = {'news': news,
-               'rubrics': rubrics,
-               'current_rubric': current_rubric, }
+    paginator = Paginator(all_news, 3)
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
+    context = {'page_obj': page_obj, 'rubrics': rubrics, 'current_rubric': current_rubric}
     return render(request, 'news/news_index.html', context)
 
 
@@ -45,7 +51,7 @@ class ArticleDetailView(DetailView):
     context_object_name = 'article'
 
 
-class ArticleUpdate(UpdateView, PermissionRequiredMixin):
+class ArticleUpdate(PermissionRequiredMixin, UpdateView):
     model = NewsArticles
     template_name = 'news/update_an_article.html'
     form_class = AddArticleForm
@@ -53,7 +59,7 @@ class ArticleUpdate(UpdateView, PermissionRequiredMixin):
     permission_required = 'news.can_delete_news_article'
 
 
-class ArticleDelete(DeleteView, PermissionRequiredMixin):
+class ArticleDelete(PermissionRequiredMixin, DeleteView):
     model = NewsArticles
     success_url = '/news/'
     template_name = 'news/article_delete.html'
