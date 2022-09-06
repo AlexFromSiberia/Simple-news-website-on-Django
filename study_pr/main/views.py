@@ -1,8 +1,9 @@
 from django.shortcuts import render, reverse, redirect
 from django.contrib.auth import login
-from .forms import NewUserForm
+from .forms import NewUserForm, ContactForm
 from django.contrib import messages
 from news.models import Rubric
+from django.core.mail import send_mail
 
 
 def index(request):
@@ -17,29 +18,37 @@ def about(request):
     return render(request, 'main/about.html', context)
 
 
-def contacts(request):
-    rubrics = Rubric.objects.all()
-    context = {'rubrics': rubrics}
-    return render(request, 'main/contacts.html', context)
-
-
-def success(request):
-    return render(request, 'registration/success.html')
-
-
 def register(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
         if form.is_valid():
             user = form.save()
+            messages.success(request, "Registration successful!")
             login(request, user)
-            messages.success(request, "Registration successful.")
-            return redirect(reverse("success"))
+            return redirect(reverse("index"))
         messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
     return render(request=request, template_name="registration/register.html", context={"register_form": form})
 
 
-
-
-
+def contacts(request):
+    rubrics = Rubric.objects.all()
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            mail = send_mail(form.cleaned_data['subject'],
+                             form.cleaned_data['content'],
+                             'stibo84@mail.ru',
+                             ['id764g@gmail.com'],
+                             fail_silently=False)
+            if mail:
+                messages.success(request, 'Письмо отправлено!')
+                return redirect('contacts')
+            else:
+                messages.error(request, 'Ошибка отправки')
+        else:
+            messages.error(request, 'Ошибка валидации, поля заполнены неверно')
+    else:
+        form = ContactForm()
+    context = {'rubrics': rubrics, "form": form}
+    return render(request, 'main/contacts.html', context)

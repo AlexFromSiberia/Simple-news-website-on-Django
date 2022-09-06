@@ -11,7 +11,6 @@ urlpatterns = [
     path('update/<int:pk>/', views.ArticleUpdate.as_view(), name='ArticleUpdate'),
     path('delete/<int:pk>/', views.ArticleDelete.as_view(), name='ArticleDelete'),
     path('by_rubric/<int:pk>/', views.by_rubric, name='by_rubric'),
-
 ]
 
 if settings.DEBUG:

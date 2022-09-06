@@ -136,3 +136,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 INTERNAL_IPS = ['127.0.0.1', ]
 
+# settings for email sending form:
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 2525  # 993  995
+EMAIL_HOST_USER = 'stibo84@mail.ru'
+EMAIL_HOST_PASSWORD = '00KrtGcLNpmfM0wqTmxr'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+

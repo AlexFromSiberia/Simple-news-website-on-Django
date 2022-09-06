@@ -7,14 +7,22 @@
         <h1>Contacts</h1>
         <ul style="text-align: left">
             <li>
-                <a href = "mailto: id764g@gmail.com">You can contact me via E-mail: id764g@gmail.com</a>
-            </li>
-            <li>
                 <a href="https://github.com/AlexFromSiberia">My GitHub page</a>
             </li>
             <li>
                 <a href="https://github.com/AlexFromSiberia/news_website.git">This project on GitHub</a>
             </li>
+            <li>
+                <a href = "mailto: id764g@gmail.com">You can contact me via E-mail: id764g@gmail.com</a>
+                <div>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary btn-block">Send</button>
+                    </form>
+                </div>
+            </li>
+
         </ul>
     </div>
 {% endblock content %}

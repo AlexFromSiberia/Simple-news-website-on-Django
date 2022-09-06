@@ -1,4 +1,5 @@
-<nav aria-label="Page navigation" >
+{% if page_obj.has_other_pages %}
+    <nav aria-label="Page navigation" style="margin: 0 auto; width: 500px; display: block; ">
   <ul class="pagination" >
     {% if page_obj.has_previous %}
         <li class="page-item">
@@ -49,3 +50,4 @@
     {% endif %}
   </ul>
 </nav>
+{% endif %}
