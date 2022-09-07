@@ -6,7 +6,9 @@
     <div class='features'>
         <h1> {{ article.title }} </h1>
         <p><strong>Rubric: </strong><a href="{% url 'by_rubric' article.rubric_id %}"> {{article.rubric}}</a></p>
-        <img src="{{ article.photo.url }}" width ="700">
+        {% if article.photo%}
+			<img src="{{ article.photo.url }}" width ="700">
+		{% endif %}
         <p> {{ article.text }} </p>
         <p><strong>Published:</strong> {{article.date}}  ({{article.date|timesince}} ago )</p>
         <p><strong>Written by: </strong> {{article.author}}</p>

@@ -23,7 +23,9 @@
                 <div class='article'>
                     <h2> {{item.title}}</h2>
                     <p><strong>Rubric: </strong><a href="{% url 'by_rubric' item.rubric_id %}"> {{item.rubric}}</a></p>
-                    <img src="{{ item.photo.url }}" width ="700">
+                    {% if item.photo%}
+                        <img src="{{ item.photo.url }}" width ="700">
+	                {% endif %}
                     <p>{{item.text|linebreaks|truncatewords:50}}</p>
                     <p><strong>Published:</strong> {{item.date}}  ({{item.date|timesince}} ago )</p>
                     <p><strong>Written by: </strong> {{item.author}}</p>

@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('news/', include('news.urls')),
     path('',      include('main.urls')),
+    path('captcha/', include('captcha.urls')),
 ]
 
 
