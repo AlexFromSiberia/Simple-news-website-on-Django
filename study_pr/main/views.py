@@ -42,12 +42,12 @@ def contacts(request):
                              ['id764g@gmail.com'],
                              fail_silently=False)
             if mail:
-                messages.success(request, 'Письмо отправлено!')
+                messages.success(request, 'The letter has been sent successfully!')
                 return redirect('contacts')
             else:
-                messages.error(request, 'Ошибка отправки')
+                messages.error(request, 'There is an error occurred...')
         else:
-            messages.error(request, 'Ошибка валидации, поля заполнены неверно')
+            messages.error(request, 'Validation error, incorrect input. Maybe wrong CAPTCHA?')
     else:
         form = ContactForm()
     context = {'rubrics': rubrics, "form": form}

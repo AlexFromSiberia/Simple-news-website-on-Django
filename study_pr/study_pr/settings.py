@@ -141,7 +141,7 @@ INTERNAL_IPS = ['127.0.0.1', ]
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 2525  # 993  995
 EMAIL_HOST_USER = 'stibo84@mail.ru'
-EMAIL_HOST_PASSWORD = '0'
+EMAIL_HOST_PASSWORD = 'Empty here...'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 

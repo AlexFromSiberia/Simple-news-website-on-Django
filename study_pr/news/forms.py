@@ -6,6 +6,7 @@ from captcha.fields import CaptchaField
 
 class AddArticleForm(ModelForm):
     captcha = CaptchaField()
+
     class Meta:
         # we use the only model we have
         model = NewsArticles
@@ -18,5 +19,3 @@ class AddArticleForm(ModelForm):
             "rubric": Select(attrs={'class': 'form-control'}),
             "photo": ClearableFileInput(attrs={'class': 'form-control'}),
         }
-
-

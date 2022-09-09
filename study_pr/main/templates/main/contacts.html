@@ -5,25 +5,31 @@
 {% block content %}
     <div class="features">
         <h1>Contacts</h1>
-        <ul style="text-align: left">
-            <li>
-                <a href="https://github.com/AlexFromSiberia">My GitHub page</a>
-            </li>
-            <li>
-                <a href="https://github.com/AlexFromSiberia/news_website.git">This project on GitHub</a>
-            </li>
-            <li>
-                <a href = "mailto: id764g@gmail.com">You can contact me via E-mail: id764g@gmail.com</a>
-                <div>
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="btn btn-primary btn-block">Send</button>
-                    </form>
-                </div>
-            </li>
-
-        </ul>
+        <div class="article">
+            <ul style="text-align: left;">
+                <li>
+                    <p>My GitHub page: <a href="https://github.com/AlexFromSiberia"> Go to GitHub </a></p>
+                </li>
+                <li>
+                    <p>This project on GitHub: <a href="https://github.com/AlexFromSiberia/news_website.git">Check the project</a></p>
+                </li>
+                <li>
+                    <p>My page on CodeWars: <a href="https://www.codewars.com/users/AlexFromSiberia">Check the page</a></p>
+                </li>
+                <li>
+                    <p>You can contact me via E-mail, using you mail app:
+                    <a href = "mailto: id764g@gmail.com"> mailto: id764g@gmail.com</a></p>
+                </li>
+            </ul>
+            <p>Or you can use the form below, it will send the message automatically to my email:</p>
+            <div >
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary btn-block">Send letter</button>
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock content %}
 
