@@ -3,26 +3,57 @@
 {% if page_obj.has_other_pages %}
     <nav aria-label="Page navigation" style="margin: 0 auto; width: 500px; display: block;">
       <ul class="pagination">
+          <style>
+              .page-link {
+                background: #7b7b7b00;
+                border-color: #7b7b7b00;
+                color: #888888;
+                }
+
+              .page-link:hover,
+              .page-link:active {
+                background: #50500073;
+                border-color: #7b7b7b00;
+                }
+
+               .disabled>.page-link, .page-link.disabled {
+                background: #7b7b7b00;
+                color: #888888;
+                border-color: #7b7b7b00;
+                }
+
+                span {
+                    color: #e4b42e;
+                    font-weight: bold;
+                }
+
+                .disabled>.page-link span {
+                    color: #888;
+                }
+
+
+          </style>
+
         {% if page_obj.has_previous %}
             <li class="page-item">
               <a class="page-link" href="?page=1" aria-label="First">
-                <span aria-hidden="true" style="color: #e4b42e; font-weight: bold">Go to the first page</span>
+                <span aria-hidden="true">Go to the first page</span>
               </a>
             </li>
             <li class="page-item">
-              <a class="page-link" href="?page={{ page_obj.previous_page_number }} " aria-label="Previous">
-                <span aria-hidden="true" style="color: #e4b42e; font-weight: bold">&laquo;</span>
+              <a class="page-link" href="?page={{page_obj.previous_page_number }} " aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
         {% else %}
             <li class="page-item disabled">
               <a class="page-link" href="#" aria-label="First">
-                <span aria-hidden="true" style="color: #e4b42e; font-weight: bold">First page</span>
+                <span aria-hidden="true">First page</span>
               </a>
             </li>
             <li class="page-item disabled">
               <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true" style="color: #e4b42e; font-weight: bold">&laquo;</span>
+                <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
         {% endif %}
@@ -30,23 +61,23 @@
         {% if page_obj.has_next %}
             <li class="page-item">
               <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
-                <span aria-hidden="true" style="color: #e4b42e; font-weight: bold">&raquo;</span>
+                <span aria-hidden="true">&raquo;</span>
               </a>
             </li>
             <li class="page-item">
               <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="First">
-                <span aria-hidden="true" style="color: #e4b42e; font-weight: bold">Go to the last page</span>
+                <span aria-hidden="true">Go to the last page</span>
               </a>
             </li>
         {% else %}
             <li class="page-item disabled">
               <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true" style="color: #e4b42e; font-weight: bold">&raquo;</span>
+                <span aria-hidden="true">&raquo;</span>
               </a>
             </li>
             <li class="page-item disabled">
               <a class="page-link" href="#" aria-label="First">
-                <span aria-hidden="true" style="color: #e4b42e; font-weight: bold">Last page</span>
+                <span aria-hidden="true">Last page</span>
               </a>
             </li>
         {% endif %}
