@@ -6,17 +6,18 @@
     {% if user.is_staff %}
         <div class='features'>
             <h1> Are you sure you want to delete this article? </h1>
-            <form method="post" class="add-new-article">
-                {%csrf_token %}
-                <button class="btn btn-danger" type="submit"> Yes, I'm sure. Delete it. </button>
-            </form>
-        </div>
-            {% else%}
-            <div class='features'>
-                <h1>Sorry, you aren't allowed to delete articles, please check your login/password and try again </h1>
-                <p style="color: red">***Only Staff members can delete articles</p>
+            <div class='article'>
+                <form method="post" class="add-new-article">
+                    {%csrf_token %}
+                    <div class='delete'><button class="btn btn-danger" type="submit"> Yes, I'm sure. Delete it. </button></div>
+                </form>
             </div>
+                {% else%}
+                <div class='features'>
+                    <h1>Sorry, you aren't allowed to delete articles, please check your login/password and try again </h1>
+                    <p style="color: red">***Only Staff members can delete articles</p>
+                </div>
+        </div>
     {% endif %}
-
 {% endblock content %}
 

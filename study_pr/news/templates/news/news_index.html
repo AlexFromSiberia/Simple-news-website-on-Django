@@ -24,7 +24,7 @@
                     <h2> {{item.title}}</h2>
                     <p><strong>Rubric: </strong><a href="{% url 'by_rubric' item.rubric_id %}"> {{item.rubric}}</a></p>
                     {% if item.photo%}
-                        <img src="{{ item.photo.url }}" width ="700">
+                        <img src="{{ item.photo.url }}" class="img-news">
 	                {% endif %}
                     <p>{{item.text|linebreaks|truncatewords:50}}</p>
                     <p><strong>Published:</strong> {{item.date}}  ({{item.date|timesince}} ago )</p>

@@ -1,104 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    background: #2c2c2c;
+  background: #2c2c2c;
 }
 
 aside {
-    background: #181818;
-    float: left;
-    padding: 1%;
-    height:100vh;
-    color:#fff;
-    border-right: 1px solid #4d4d4d;
-    position: fixed;
+  background: #181818;
+  padding: 1%;
+  height: 100vh;
+  color: rgba(209, 209, 209, 0.986);
+  border-right: 1px solid #3a3a3a;
+  position: fixed;
 }
 
 aside img {
-    width: 80px;
-    height: 115px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+  width: 80px;
+  height: 115px;
+  display: block;
+  margin: 0 auto;
 }
 
 aside .logo {
-    margin-top: 0px;
-    text-align: center;
-    font-weight: bold;
+  margin: 0;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(255, 54, 54);
 }
 
 aside a {
-    text-decoration-line: none;
-    color: #fff;
+  text-decoration-line: none;
+  color: rgb(206, 206, 206);
 }
 
 aside ul {
-    list-style: none;
+  padding-left: 1rem;
 }
 
 aside ul li {
-    color: #fff;
-    display: block;
-    margin-top: 20px;
-    transition: transform .5s ease;
+  color: rgb(207, 207, 207);
+  display: block;
+  margin-bottom: 10px;
+  transition: transform 0.5s ease;
+  list-style: none;
 }
 
-aside ul li:hover, aside ul a:hover {
-    color: red;
-    font-weight: bold;
-    text-decoration: none;
-    transform: scale3d(1.1, 1.1, 1.1);
+aside ul li:hover,
+aside ul a:hover {
+  color: rgb(255, 54, 54);
+  font-weight: bold;
+  text-decoration: none;
+  transform: scale3d(1.1, 1.1, 1.1);
 }
 
 .article {
-    border: 1px solid #696868;
-    max-width: 800px;
-    margin: 20px auto;
+  border: 1px solid #3a3a3a;
+  border-radius: 1%;
+  max-width: 800px;
+  margin: 20px auto;
 }
 
 main .features {
-    float: right;
-    color: #fff;
-    text-align: center;
-    width: 80%;
+  float: right;
+  color: rgb(207, 207, 207);
+  text-align: center;
+  width: 80%;
 }
 
-main .features p,h1, h2, h3 {
-    max-width: 700px;
-    margin: 20px auto;
-    text-align: justify;
-}
-
-.main_page {
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-.main_page li {
-    text-align: left;
+main .features p,
+h1,
+h2,
+h3 {
+  width: 90%;
+  margin: 20px auto;
+  text-align: justify;
 }
 
 main .features h4 {
-    text-align: left;
-
+  text-align: left;
 }
 
 main .features h1 {
-    font-size: 50px;
-    color: #f5c236;
-    text-align: center;
+  font-size: 50px;
+  color: #f5c236;
+  text-align: center;
+  max-width: 800px;
 }
 
-.add-new-article{
-    max-width: 800px;
-    margin: 20px auto;
+.img-news {
+  width: 90%;
+}
+
+.main_page {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.main_page li {
+  text-align: left;
+}
+
+.add-new-article {
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
 }
 
 .registration {
-    width: 400px;
-    margin: 20px auto;
-    color: #fff;
+  width: 400px;
+  margin: 20px auto;
+  color: rgb(209, 209, 209);
 }
 .registration label {
-    font-size: 30px;
+  font-size: 30px;
 }
 
+.delete {
+  margin-left: 40%;
+}

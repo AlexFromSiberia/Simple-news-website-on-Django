@@ -6,26 +6,30 @@
     {% if user.is_staff %}
         <div class='features'>
             <h1>Update the article</h1>
-            <form method="post" class="add-new-article" enctype="multipart/form-data">
-                {%csrf_token %}
-                    <h4>Title:</h4>
-                    {{ form.title }}<br>
-                    <h4>Rubric:</h4>
-                    {{ form.rubric }}<br>
-                    <h4>Add an image:</h4>
-                    {{ form.photo }}<br>
-                    <h4>Full text:</h4>
-                    {{ form.text }}<br>
-                    <h4>Captcha:</h4>
-                    {{ form.captcha }}<br>
-                    <p style="color:red">{{ error }}</p>
-                <button class="btn btn-success" type="submit"> Update! </button>
-            </form>
+            <div class='article'>
+                <form method="post" class="add-new-article" enctype="multipart/form-data">
+                    {%csrf_token %}
+                        <h4>Title:</h4>
+                        {{ form.title }}<br>
+                        <h4>Rubric:</h4>
+                        {{ form.rubric }}<br>
+                        <h4>Add an image:</h4>
+                        {{ form.photo }}<br>
+                        <h4>Full text:</h4>
+                        {{ form.text }}<br>
+                        <h4>Captcha:</h4>
+                        {{ form.captcha }}<br>
+                        <p style="color:red">{{ error }}</p>
+                    <button class="btn btn-success" type="submit"> Update! </button>
+                </form>
+            </div>
         </div>
     {% else%}
         <div class='features'>
-            <h1>Sorry, you aren't allowed to update articles, please check your login/password and try again </h1>
-            <p style="color: red">***Only Staff members can update articles</p>
+            <div class='article'>
+                <h1>Sorry, you aren't allowed to update articles, please check your login/password and try again </h1>
+                <p style="color: red">***Only Staff members can update articles</p>
+            </div>
         </div>
     {% endif %}
 {% endblock content %}

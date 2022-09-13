@@ -1,5 +1,4 @@
 
-
 {% if page_obj.has_other_pages %}
     <nav aria-label="Page navigation" style="margin: 0 auto; width: 500px; display: block;">
       <ul class="pagination">
@@ -7,7 +6,7 @@
               .page-link {
                 background: #7b7b7b00;
                 border-color: #7b7b7b00;
-                color: #888888;
+                color: #888;
                 }
 
               .page-link:hover,
@@ -16,9 +15,9 @@
                 border-color: #7b7b7b00;
                 }
 
-               .disabled>.page-link, .page-link.disabled {
+               .disabled>.page-link {
                 background: #7b7b7b00;
-                color: #888888;
+                color: #888;
                 border-color: #7b7b7b00;
                 }
 
@@ -30,8 +29,6 @@
                 .disabled>.page-link span {
                     color: #888;
                 }
-
-
           </style>
 
         {% if page_obj.has_previous %}

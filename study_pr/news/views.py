@@ -69,5 +69,3 @@ class ArticleDelete(SuccessMessageMixin, DeleteView, PermissionRequiredMixin):
     template_name = 'news/article_delete.html'
     permission_required = 'news.can_delete_news_article'
     success_message = 'Article has been successfully deleted!'
-
-

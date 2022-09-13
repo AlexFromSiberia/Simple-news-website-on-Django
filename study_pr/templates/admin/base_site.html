@@ -1,18 +1,14 @@
 {% extends "admin/base.html" %}
 {% load static %}
 
-
 {% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
 
 {% block extrastyle %}
   <link rel="stylesheet" href="{% static 'main/css/admin_panel.css' %}">
-
-
 {% endblock %}
 
-
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'admin:index' %}">Hot News: administration</a></h1>
+  <h1 id="site-name"><a href="{% url 'admin:index' %}">Hot News: administration</a></h1>
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
