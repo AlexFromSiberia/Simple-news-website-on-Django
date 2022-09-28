@@ -121,5 +121,6 @@ main .features h1 {
 }
 
 .delete {
-  margin-left: 40%;
+  display: flex;
+  justify-content: center;
 }
