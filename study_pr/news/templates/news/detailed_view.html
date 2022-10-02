@@ -10,7 +10,7 @@
             {% if article.photo%}
                 <img src="{{ article.photo.url }}" class="img-news">
             {% endif %}
-            <p> {{ article.text }} </p>
+            <p> {{ article.text|safe }} </p>
             <p><strong>Published:</strong> {{article.date}}  ({{article.date|timesince}} ago )</p>
             <p><strong>Written by: </strong> {{article.author}}</p>
             {% if user.is_authenticated %}

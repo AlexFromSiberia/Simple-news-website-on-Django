@@ -10,6 +10,7 @@ urlpatterns = [
     path('contacts/', views.contacts, name='contacts'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register/', views.register, name='register'),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 if settings.DEBUG:

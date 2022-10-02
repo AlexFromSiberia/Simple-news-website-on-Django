@@ -26,7 +26,7 @@
                     {% if item.photo%}
                         <img src="{{ item.photo.url }}" class="img-news">
 	                {% endif %}
-                    <p>{{item.text|linebreaks|truncatewords:50}}</p>
+                    <p>{{item.text|safe|linebreaks|truncatewords:50}}</p>
                     <p><strong>Published:</strong> {{item.date}}  ({{item.date|timesince}} ago )</p>
                     <p><strong>Written by: </strong> {{item.author}}</p>
                     <a href="{% url 'DetailView' item.id %}" class="btn btn-warning"> Read full article </a>
