@@ -2,37 +2,40 @@
 
 {% block title %}-Main page-{% endblock title %}
 
+{% load static %}
+
 {% block content %}
     <div class="features">
-        <h1>Main page</h1>
-        <div class="article">
-            <div class="main_page">
-                <h2>Это новостной сайт, где:</h2>
-                <ul>
-                    <li> каждый может посмотреть новости, отсортированные по рубрикам;</li>
-                    <li> каждый зарегестрированный пользователь может добавить новую статью;</li>
-                    <li> только администратор или сотрудник сайта имеет возможность удалять статьи.</li>
-                    <li> в Админке настроено: поиск по темам, фильтрация по рубрикам и авторам новостей, внешний вид</li>
-                </ul>
-                 <p> Для теста всего функционала, войдите как "сотрудник": </p>
-                 <ul>
-                     <li>Login: alex</li>
-                     <li>Password: alex</li>
-                 </ul>
-                <br>
-                <h2>This is a news site where:</h2>
-                <ul>
-                    <li> everyone can see news sorted by rubrics;</li>
-                    <li> only registered users can add new articles;</li>
-                    <li> only the administrator or staff member has the ability to delete articles.</li>
-                </ul>
-                <p> To login as "Staff" and test all functionality, please use:</p>
-                <ul>
-                    <li>Login: alex</li>
-                    <li>Password: alex</li>
-                </ul>
-                <a href="{% url 'login' %}" class="btn btn-danger"> Go to Login page </a>
+            <h1>Main page</h1>
+            <div class="article">
+                <div class="main_page">
+                    <h2>Это новостной сайт, где:</h2>
+                    <ul>
+                        <li> каждый может посмотреть новости, отсортированные по рубрикам;</li>
+                        <li> каждый зарегестрированный пользователь может добавить новую статью;</li>
+                        <li> только администратор или сотрудник сайта имеет возможность удалять статьи.</li>
+                        <li> в Админке настроено: поиск по темам, фильтрация по рубрикам и авторам новостей, внешний вид
+                        </li>
+                    </ul>
+                    <p> Для теста всего функционала, войдите как "сотрудник": </p>
+                    <ul>
+                        <li>Login: alex</li>
+                        <li>Password: alex</li>
+                    </ul>
+                    <br>
+                    <h2>This is a news site where:</h2>
+                    <ul>
+                        <li> everyone can see news sorted by rubrics;</li>
+                        <li> only registered users can add new articles;</li>
+                        <li> only the administrator or staff member has the ability to delete articles.</li>
+                    </ul>
+                    <p> To login as "Staff" and test all functionality, please use:</p>
+                    <ul>
+                        <li>Login: alex</li>
+                        <li>Password: alex</li>
+                    </ul>
+                    <a href="{% url 'login' %}" class="btn btn-danger"> Go to Login page </a>
+                </div>
             </div>
         </div>
-    </div>
 {% endblock content %}

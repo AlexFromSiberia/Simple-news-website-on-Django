@@ -124,3 +124,24 @@ main .features h1 {
   display: flex;
   justify-content: center;
 }
+
+.container {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+  }
+
+.sidebar_right {
+    border: 1px solid #3a3a3a;
+    border-radius: 1%;
+    margin: 20px auto;
+    color: rgba(209, 209, 209, 0.986);
+    margin: 20px;
+    padding: 20px;
+
+  }
+
+.sidebar_right h2 {
+    color: #f5c236;
+}

@@ -1,0 +1,17 @@
+<h2> Popular articles </h2>
+<div>
+    {% for article in articles %}
+    <div>
+        {% if article.photo %}
+            <img src="{{ article.photo.url }}" class="img-news" alt="{{ article.title }}" width="100">
+        {% endif %}
+
+        <div>
+            <h5><a href="{% url 'DetailView' article.id %}"> {{ article.title }} </a></h5>
+            <p> <strong>Posted by: </strong> {{ article.author }} <span> | </span> <strong>Published: </strong> {{ article.date }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+

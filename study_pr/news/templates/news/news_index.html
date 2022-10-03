@@ -1,4 +1,8 @@
 {% extends "main/base.html" %}
+{% load sidebar_right %}
+{% load static %}
+{% load cache %}
+
 
 {% block title %}
     {% if current_rubric %}
@@ -9,7 +13,8 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="features">
+    <div class="container">
+        <div class="features">
         <div class="news_roll">
             {% if current_rubric %}
                 <h1>All news in "{{current_rubric}}" rubric: </h1>
@@ -37,6 +42,13 @@
             <br>
             {% include "main/paginator.html" %}
             <br>
+        </div>
+    </div>
+
+        <div class="col-md-4 sidebar_right">
+            {% cache 40 sidebar_right %}
+                {% get_popular_articles %}
+            {% endcache %}
         </div>
     </div>
 {% endblock content %}

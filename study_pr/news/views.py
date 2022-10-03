@@ -7,6 +7,8 @@ from django.views.generic import DetailView, UpdateView, DeleteView
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.paginator import Paginator
 from django.contrib.messages.views import SuccessMessageMixin
+# для возможности подсчёта просмотров
+from django.db.models import F
 
 
 def news_index(request):
@@ -52,6 +54,13 @@ class ArticleDetailView(DetailView):
     model = NewsArticles
     template_name = 'news/detailed_view.html'
     context_object_name = 'article'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        self.object.views = F('views') + 1
+        self.object.save()
+        self.object.refresh_from_db()
+        return context
 
 
 class ArticleUpdate(SuccessMessageMixin, UpdateView, PermissionRequiredMixin, ):

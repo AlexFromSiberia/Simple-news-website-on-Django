@@ -24,6 +24,7 @@ class NewsArticles(models.Model):
                                help_text="Choose the rubric",
                                verbose_name="Rubric",
                                null=True)
+    views = models.IntegerField(default=0, verbose_name='Views')
 
     def __str__(self):
         return self.title
