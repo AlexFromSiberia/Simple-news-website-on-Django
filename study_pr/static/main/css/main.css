@@ -9,13 +9,17 @@ body {
 }
 
 aside {
+  position: sticky;
+  top: 0px;
+
   background: #181818;
-  padding: 1%;
+  padding: 10px;
   height: 100vh;
   color: rgba(209, 209, 209, 0.986);
   border-right: 1px solid #3a3a3a;
-  position: fixed;
 }
+
+
 
 aside img {
   width: 80px;
@@ -115,7 +119,10 @@ main .features h1 {
   width: 400px;
   margin: 20px auto;
   color: rgb(209, 209, 209);
+  text-align: left;
+
 }
+
 .registration label {
   font-size: 30px;
 }
@@ -127,14 +134,13 @@ main .features h1 {
 
 .container {
     display: flex;
-    align-items: baseline;
-    justify-content: center;
     gap: 10px;
   }
 
 .sidebar_right {
-    border: 1px solid #3a3a3a;
-    border-radius: 1%;
+    position: sticky;
+    top: 400px;
+    flex-shrink: 1;
     margin: 20px auto;
     color: rgba(209, 209, 209, 0.986);
     margin: 20px;
@@ -142,6 +148,9 @@ main .features h1 {
 
   }
 
+
 .sidebar_right h2 {
     color: #f5c236;
 }
+
+

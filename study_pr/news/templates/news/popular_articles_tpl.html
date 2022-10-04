@@ -1,9 +1,9 @@
-<h2> Popular articles </h2>
+<h3> Popular articles </h3>
 <div>
     {% for article in articles %}
     <div>
         {% if article.photo %}
-            <img src="{{ article.photo.url }}" class="img-news" alt="{{ article.title }}" width="100">
+            <img src="{{ article.photo.url }}" alt="{{ article.title }}" style="width: 200px;">
         {% endif %}
 
         <div>
