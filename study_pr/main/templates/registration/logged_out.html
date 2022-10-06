@@ -2,9 +2,11 @@
 
 {% block content %}
     <div class="features">
-        <div class="main_page" >
-            <h2 style="width: 360px; text-align: center"> You've logged out... </h2>
-            <a href="{% url 'login' %}"> Click to login again </a>
+        <div class="article">
+            <div class=registration >
+                <h2 style="width: 360px; text-align: center"> You've logged out... </h2>
+                <a href="{% url 'login' %}" id='registration_btn'> Click to login again </a>
+            </div>
         </div>
     </div>
 {% endblock content %}
