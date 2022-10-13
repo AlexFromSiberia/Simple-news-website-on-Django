@@ -14,7 +14,7 @@ aside {
   width: 203px;
   background: #181818;
   padding: 10px;
-  height: 100vh;
+  height: 270vh;
   color: rgba(209, 209, 209, 0.986);
   border: 1px solid #3a3a3a;
 }
@@ -150,13 +150,12 @@ h3 {
 .container {
     display: flex;
     gap: 10px;
-    max-width: 100%;
   }
 
 .sidebar_right {
     position: sticky;
     top: 0;
-    height: 100vh;
+    height: 250vh;
     flex-shrink: 1;
     color: rgba(209, 209, 209, 0.986);
     padding: 20px;
