@@ -1,5 +1,6 @@
 Это проект новостного сайта на Django, в котором реализовано:
 - просмотр новостей, отсортированных по рубрикам;
+- пагинация (pagination);
 - авторизация пользователей с разделением функционала;
 - добавление / удаление / редактирование статей зарегестрированными пользователями;
 - вывод статей по рубрикам;
@@ -14,6 +15,7 @@
 
 This is a Django 'news site' project that implements:
 - viewing news sorted by headings;
+- pagination;
 - authorization of users and functionality separation;
 - adding / deleting / updating articles by registered users;
 - search of articles by headings;
