@@ -1,7 +1,4 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-
+/venv/
 # Editors
 .vscode/
 .idea/
@@ -127,3 +124,4 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+/venv_linux/

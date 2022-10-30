@@ -1,6 +1,9 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from rest_framework import viewsets
+from .serializers import NewsArticlesSerializer
+
 from .models import NewsArticles, Rubric
 from .forms import AddArticleForm
 from django.views.generic import DetailView, UpdateView, DeleteView
@@ -78,3 +81,11 @@ class ArticleDelete(SuccessMessageMixin, DeleteView, PermissionRequiredMixin):
     template_name = 'news/article_delete.html'
     permission_required = 'news.can_delete_news_article'
     success_message = 'Article has been successfully deleted!'
+
+
+class NewsArticlesViewSet(viewsets.ModelViewSet):
+    queryset = NewsArticles.objects.all()
+    serializer_class = NewsArticlesSerializer
+
+
+
