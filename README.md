@@ -1,4 +1,5 @@
-Это проект новостного сайта на Django, в котором реализовано:
+
+## Это проект новостного сайта на Django, в котором реализовано:
 - просмотр новостей, отсортированных по рубрикам;
 - пагинация (pagination);
 - авторизация пользователей с разделением функционала;
@@ -10,14 +11,12 @@
 - установлен DDT (Django Debug Toolbar) для поиска проблем и отладки;
 - настроена упрощённая отправка email администратору сайта из предусмотренной формы на сайте;
 - кастомизирован внешний вид панели администратора, настроено: поиск по темам, фильтрация по рубрикам и авторам новостей.
-
-В разработке:
 - реализован DRF (Django Rest Framework) Возможность получать и добавлять новостные статьи с помощью API 
 
 
 ---
 
-This is a Django 'news site' project that implements:
+## This is a Django 'news site' project that implements:
 - viewing news sorted by headings;
 - pagination;
 - authorization of users and functionality separation;
@@ -29,3 +28,4 @@ This is a Django 'news site' project that implements:
 - installed DDT (Django Debug Toolbar) for troubleshooting and debugging;
 - simplified sending email to the site administrator right from the site;
 - customized admin panel, configured: appearance, search by topics, filtering by headings and authors.
+- implemented DRF (Django Rest Framework): ability to receive and add news articles using API
