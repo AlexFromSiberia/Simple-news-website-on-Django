@@ -7,7 +7,7 @@
         {% endif %}
 
         <div>
-            <h5><a href="{% url 'DetailView' article.id %}"> {{ article.title }} </a></h5>
+            <h5><a href="{% url 'DetailView' article.slug %}"> {{ article.title }} </a></h5>
             <p> <strong>Posted by: </strong> {{ article.author }} <span> | </span> <strong>Published: </strong> {{ article.date }}</p>
         </div>
     </div>

@@ -16,13 +16,14 @@ class NewsArticlesForm(forms.ModelForm):
 class NewsArticlesAdmin(admin.ModelAdmin):
     form = NewsArticlesForm
     save_as = True
-    list_display = ('id', 'title', 'date', 'photo', 'thumbnail', 'author', 'rubric')
+    list_display = ('id', 'title', 'slug', 'date', 'photo', 'thumbnail', 'author', 'rubric')
     list_display_links = ('id', 'title', 'date', 'photo', 'author')
     search_fields = ('title', )
     list_filter = ('author', 'rubric')
-    fields = ('title', 'rubric', 'photo', 'thumbnail', 'text', 'author',  'date')
+    fields = ('title', 'slug', 'rubric', 'photo', 'thumbnail', 'text', 'author',  'date')
     readonly_fields = ('id', 'date', 'thumbnail')
     save_on_top = True
+    prepopulated_fields = {'slug': ('title',)}
 
     def thumbnail(self, obj):
         if obj.photo:

@@ -11,7 +11,7 @@
 - установлен DDT (Django Debug Toolbar) для поиска проблем и отладки;
 - настроена упрощённая отправка email администратору сайта из предусмотренной формы на сайте;
 - кастомизирован внешний вид панели администратора, настроено: поиск по темам, фильтрация по рубрикам и авторам новостей.
-- реализован DRF (Django Rest Framework) Возможность получать и добавлять новостные статьи с помощью API (Для зарегистрированного пользователя: http://http://alexfromsiberia.site/news/api/v1/NewsArticles/)
+- реализована возможность просматривать и добавлять новостные статьи с помощью API (через DRF: для зарегистрированного пользователя: http://http://alexfromsiberia.site/news/api/v1/NewsArticles/)
 
 
 ---
@@ -28,4 +28,4 @@
 - installed DDT (Django Debug Toolbar) for troubleshooting and debugging;
 - simplified sending email to the site administrator right from the site;
 - customized admin panel, configured: appearance, search by topics, filtering by headings and authors.
-- implemented DRF (Django Rest Framework): ability to receive and add news articles using API (For registered user: http://http://alexfromsiberia.site/news/api/v1/NewsArticles/)
+- implemented ability to receive and add news articles using API (through Django Rest Framework: for registered user: http://http://alexfromsiberia.site/news/api/v1/NewsArticles/)

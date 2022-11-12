@@ -10,7 +10,7 @@ class AddArticleForm(ModelForm):
     class Meta:
         # we use the only model we have
         model = NewsArticles
-        fields = ['title', 'rubric', 'text', 'photo']
+        fields = ['title', 'rubric', 'photo', 'text']
 
         # widgets will define how it's going to look like
         widgets = {

@@ -8,6 +8,5 @@ class NewsArticlesSerializer(serializers.ModelSerializer):
     class Meta:
         model = NewsArticles
         # all fields = model's fields
-        # ("title", "text", "author", "rubric")
         fields = '__all__'
 

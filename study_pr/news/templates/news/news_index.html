@@ -34,7 +34,7 @@
                     <p>{{item.text|safe|linebreaks|truncatewords:50}}</p>
                     <p><strong>Published:</strong> {{item.date}}  ({{item.date|timesince}} ago )</p>
                     <p><strong>Written by: </strong> {{item.author}}</p>
-                    <a href="{% url 'DetailView' item.id %}" class="btn btn-warning"> Read full article </a>
+                    <a href="{% url 'DetailView' item.slug %}" class="btn btn-warning"> Read full article </a>
                     <br>
                     <br>
                 </div>

@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from rest_framework import viewsets
 from .serializers import NewsArticlesSerializer
-
 from .models import NewsArticles, Rubric
 from .forms import AddArticleForm
 from django.views.generic import DetailView, UpdateView, DeleteView
@@ -38,12 +37,28 @@ def by_rubric(request, pk):
 
 
 def add_an_article(request):
+    def make_slug(title):
+        """Makes a slug from the article title, that user provides
+        """
+        f = [":", "?", "#", "[", "]", "@", "!", "$", "&", "'", "(", ")", "*", "+", ",", ";", "=", " "]
+        ans = ''
+        for letter in title:
+            if letter not in f:
+                ans += letter.lower()
+            else:
+                if ans[-1] == '_':
+                    pass
+                else:
+                    ans += '_'
+        return ans
+
     error = ''
     if request.method == 'POST':
         form = AddArticleForm(request.POST, request.FILES)
         if form.is_valid():
             new_article = form.save(commit=False)
             new_article.author = request.user
+            new_article.slug = make_slug(form.cleaned_data['title'])
             new_article.save()
             return HttpResponseRedirect(reverse_lazy('news_index'))
         else:

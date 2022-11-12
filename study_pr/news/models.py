@@ -10,9 +10,14 @@ class Rubric(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Рубрику"
+        verbose_name_plural = "Рубрики"
+
 
 class NewsArticles(models.Model):
     title = models.CharField(verbose_name='Title', max_length=100)
+    slug = models.SlugField(max_length=255, verbose_name='Url', unique=True)
     text = models.TextField(verbose_name='Full_text')
     date = models.DateField(verbose_name='Date', auto_now_add=True)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', null=True, blank=True)
@@ -30,5 +35,5 @@ class NewsArticles(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = "News article"
-        verbose_name_plural = "News articles"
+        verbose_name = "Новостную статью"
+        verbose_name_plural = "Новостные статьи"

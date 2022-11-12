@@ -12,9 +12,9 @@ router.register(r'NewsArticles', views.NewsArticlesViewSet)
 urlpatterns = [
     path('', views.news_index, name='news_index'),
     path('add_an_article', views.add_an_article, name='add_an_article'),
-    path('<int:pk>', views.ArticleDetailView.as_view(), name='DetailView'),
-    path('update/<int:pk>/', views.ArticleUpdate.as_view(), name='ArticleUpdate'),
-    path('delete/<int:pk>/', views.ArticleDelete.as_view(), name='ArticleDelete'),
+    path('<str:slug>', views.ArticleDetailView.as_view(), name='DetailView'),
+    path('update/<str:slug>/', views.ArticleUpdate.as_view(), name='ArticleUpdate'),
+    path('delete/<str:slug>/', views.ArticleDelete.as_view(), name='ArticleDelete'),
     path('by_rubric/<int:pk>/', views.by_rubric, name='by_rubric'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     # http://127.0.0.1:8000/news/api/v1/NewsArticles/  + int: pk of article if needed

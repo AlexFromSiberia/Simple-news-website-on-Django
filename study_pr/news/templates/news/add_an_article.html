@@ -9,7 +9,8 @@
             <form method="post" class="add-new-article" enctype="multipart/form-data">
                 {%csrf_token %}
                     <h4>Title:</h4>
-                    {{ form.title }}<br>
+                    {{ form.title }}
+                    <p style="color: red">** Slug ( Url ) will be created automatically from the title</p>
                     <h4>Rubric:</h4>
                     {{ form.rubric }}<br>
                     <h4>Full text:</h4>
