@@ -2,6 +2,11 @@ from django.urls import path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import (handler404, handler500)
+
+handler404 = 'main.views.page_not_found'  # noqa
+handler500 = 'main.views.server_error'  # noqa
+
 
 
 urlpatterns = [

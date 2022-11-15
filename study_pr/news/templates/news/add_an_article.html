@@ -3,26 +3,35 @@
 {% block title %}-Add an article-{% endblock title %}
 
 {% block content %}
-    <div class='features'>
-        <h1>Add a news article</h1>
-        <div class='article'>
-            <form method="post" class="add-new-article" enctype="multipart/form-data">
-                {%csrf_token %}
-                    <h4>Title:</h4>
-                    {{ form.title }}
-                    <p style="color: red">** Slug ( Url ) will be created automatically from the title</p>
-                    <h4>Rubric:</h4>
-                    {{ form.rubric }}<br>
-                    <h4>Full text:</h4>
-                    {{ form.text }}<br>
-                    <h4>Add an image:</h4>
-                    {{ form.photo }}<br>
-                    <h4>Captcha:</h4>
-                    {{ form.captcha }}
-                    <p style="color:red">{{ error }}</p>
-                <button class="btn btn-success" type="submit"> Add article </button>
-            </form>
+    {% if user.is_authenticated %}
+        <div class='features'>
+            <h1>Add a news article</h1>
+            <div class='article'>
+                <form method="post" class="add-new-article" enctype="multipart/form-data">
+                    {%csrf_token %}
+                        <h4>Title:</h4>
+                        {{ form.title }}
+                        <p style="color: red">** Slug ( Url ) will be created automatically from the title</p>
+                        <h4>Rubric:</h4>
+                        {{ form.rubric }}<br>
+                        <h4>Full text:</h4>
+                        {{ form.text }}<br>
+                        <h4>Add an image:</h4>
+                        {{ form.photo }}<br>
+                        <h4>Captcha:</h4>
+                        {{ form.captcha }}
+                        <p style="color:red">{{ error }}</p>
+                    <button class="btn btn-success" type="submit"> Add article </button>
+                </form>
+            </div>
         </div>
-    </div>
+    {% else%}
+        <div class='features'>
+            <div class='article'>
+                <h1>Sorry, you aren't allowed to add articles, please login and try again </h1>
+                <p style="color: red">***Only registered users can add articles</p>
+            </div>
+        </div>
+    {% endif %}
 {% endblock content %}
 

@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 
 def index(request):
     rubrics = Rubric.objects.all()
-    context = {'rubrics': rubrics}
+    context = {'rubrics': rubrics, }
     return render(request, 'main/index.html', context)
 
 
@@ -52,3 +52,15 @@ def contacts(request):
         form = ContactForm()
     context = {'rubrics': rubrics, "form": form}
     return render(request, 'main/contacts.html', context)
+
+
+def page_not_found(request, exception):
+    # Переменная exception содержит отладочную информацию,
+    # выводить её в шаблон пользователской страницы 404 не станем
+    return render(request, '404.html', {"path": request.path}, status=404)
+
+
+def server_error(request):
+    return render(request, '500.html', status=500)
+
+

@@ -11,8 +11,8 @@ router.register(r'NewsArticles', views.NewsArticlesViewSet)
 
 urlpatterns = [
     path('', views.news_index, name='news_index'),
-    path('add_an_article', views.add_an_article, name='add_an_article'),
-    path('<str:slug>', views.ArticleDetailView.as_view(), name='DetailView'),
+    path('add_an_article/', views.add_an_article, name='add_an_article'),
+    path('<str:slug>/', views.ArticleDetailView.as_view(), name='DetailView'),
     path('update/<str:slug>/', views.ArticleUpdate.as_view(), name='ArticleUpdate'),
     path('delete/<str:slug>/', views.ArticleDelete.as_view(), name='ArticleDelete'),
     path('by_rubric/<int:pk>/', views.by_rubric, name='by_rubric'),

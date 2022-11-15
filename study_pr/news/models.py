@@ -28,7 +28,8 @@ class NewsArticles(models.Model):
     rubric = models.ForeignKey('Rubric', on_delete=models.PROTECT,
                                help_text="Choose the rubric",
                                verbose_name="Rubric",
-                               null=True)
+                               null=True,
+                               related_name='Articles')
     views = models.IntegerField(default=0, verbose_name='Views')
 
     def __str__(self):
