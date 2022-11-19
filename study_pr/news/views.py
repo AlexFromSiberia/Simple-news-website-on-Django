@@ -38,7 +38,7 @@ def by_rubric(request, pk):
 
 def add_an_article(request):
     def make_slug(title):
-        """Makes a slug from the article title, that user provides
+        """Makes a slug from the articles title, that user provides
         """
         f = [":", "?", "#", "[", "]", "@", "!", "$", "&", "'", "(", ")", "*", "+", ",", ";", "=", " "]
         ans = ''
@@ -98,6 +98,7 @@ class ArticleDelete(SuccessMessageMixin, DeleteView, PermissionRequiredMixin):
     success_message = 'Article has been successfully deleted!'
 
 
+# Django Rest Framework
 class NewsArticlesViewSet(viewsets.ModelViewSet):
     queryset = NewsArticles.objects.all()
     serializer_class = NewsArticlesSerializer
