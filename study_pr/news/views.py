@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import NewsArticlesSerializer
 from .models import NewsArticles, Rubric
 from .forms import AddArticleForm
@@ -104,6 +105,8 @@ class NewsArticlesViewSet(viewsets.ModelViewSet):
     queryset = NewsArticles.objects.all()
     serializer_class = NewsArticlesSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['rubric', "id", "title", "date", "views", ]
 
 
 
