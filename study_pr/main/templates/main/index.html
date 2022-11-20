@@ -22,13 +22,15 @@
                         <li> установлен DDT (Django Debug Toolbar) для поиска проблем и отладки;</li>
                         <li> настроена упрощённая отправка email администратору сайта из предусмотренной формы на сайте;</li>
                         <li> кастомизирован внешний вид панели администратора, настроено: поиск по темам, фильтрация по рубрикам и авторам новостей.</li>
-                        <li> реализована возможность просматривать/добавлять статьи с помощью API (через DRF: для зарегистрированного пользователя: http://http://alexfromsiberia.site/news/api/v1/NewsArticles/)</li>
+                        <li> реализован API (через DRF: http://http://alexfromsiberia.site/news/api/v1/NewsArticles/). Ограничения для API: Просмотр - все пользователи. Редактирование - только зарегестрированные пользователи. Троттлинг - 10000 в день лимит для зарегестрированных, 1000 для анонимных.</li>
+                        <li> Безопасность: установлен Dotenv, все пароли загружаются из переменных системного окружения.</li>
                     </ul>
                     <p style="color: red;"> Для теста всего функционала, войдите как "сотрудник": </p>
                     <ul>
                         <li>Login: alex</li>
                         <li>Password: alex</li>
                     </ul>
+                    <a href="{% url 'login' %}" class="btn btn-danger"> Вперёд, на страницу регистрации! </a>
                     <br>
                     <h2>This is a Django 'news site' project that implements:</h2>
                     <ul>
@@ -43,7 +45,8 @@
                         <li> installed DDT (Django Debug Toolbar) for troubleshooting and debugging;</li>
                         <li> simplified sending email to the site administrator right from the site;</li>
                         <li> customized admin panel, configured: appearance, search by topics, filtering by headings and authors.</li>
-                        <li> implemented ability to receive/add articles using API (through Django Rest Framework: for registered user: http://http://alexfromsiberia.site/news/api/v1/NewsArticles/)</li>
+                        <li> API implemented (via DRF: http://http://alexfromsiberia.site/news/api/v1/NewsArticles/). API restrictions: View - all users. Editing - only registered users. Throttling - 10000 per day limit for registered, 1000 for anonymous.</li>
+                        <li> security: Dotenv is installed, all passwords are loaded from system environment variables.</li>
                     </ul>
                     <p style="color: red;">To test all the functionality, login as "employee":</p>
                     <ul>

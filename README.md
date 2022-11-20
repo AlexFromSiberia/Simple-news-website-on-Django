@@ -12,7 +12,9 @@
 - установлен DDT (Django Debug Toolbar) для поиска проблем и отладки;
 - настроена упрощённая отправка email администратору сайта из предусмотренной формы на сайте;
 - кастомизирован внешний вид панели администратора, настроено: поиск по темам, фильтрация по рубрикам и авторам новостей.
-- реализована возможность просматривать и добавлять новостные статьи с помощью API (через DRF: для зарегистрированного пользователя: http://http://alexfromsiberia.site/news/api/v1/NewsArticles/)
+- реализован API (через DRF: http://http://alexfromsiberia.site/news/api/v1/NewsArticles/). Ограничения для API: Просмотр - все пользователи. Редактирование - только зарегестрированные пользователи. Троттлинг - 10000 в день лимит для зарегестрированных, 1000 для анонимных.
+- Безопасность: установлен Dotenv, все пароли загружаются из переменных системного окружения.
+
 
 
 ---
@@ -30,4 +32,5 @@
 - installed DDT (Django Debug Toolbar) for troubleshooting and debugging;
 - simplified sending email to the site administrator right from the site;
 - customized admin panel, configured: appearance, search by topics, filtering by headings and authors.
-- implemented ability to receive and add news articles using API (through Django Rest Framework: for registered user: http://http://alexfromsiberia.site/news/api/v1/NewsArticles/)
+- API implemented (via DRF: http://http://alexfromsiberia.site/news/api/v1/NewsArticles/). API restrictions: View - all users. Editing - only registered users. Throttling - 10000 per day limit for registered, 1000 for anonymous.
+- Security: Dotenv is installed, all passwords are loaded from system environment variables.

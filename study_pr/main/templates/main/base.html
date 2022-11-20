@@ -65,12 +65,10 @@
                         {% if rubrics %}
                             <h4>News rubrics:</h4>
                             <ul>
-                                {% cache 60 nav_bar_rubrics %}
-                                    {% for rubric in rubrics %}
-                                        <li><a href="{% url 'by_rubric' rubric.pk %}" class="{% if rubric.name == current_rubric.name %}active_a{% endif %}"> -{{ rubric.name }} ({{ rubric.Articles.count }})
-                                            </a></li>
-                                    {%endfor%}
-                                {% endcache %}
+                                {% for rubric in rubrics %}
+                                    <li><a href="{% url 'by_rubric' rubric.pk %}" class="{% if rubric.name == current_rubric.name %}active_a{% endif %}"> -{{ rubric.name }} ({{ rubric.Articles.count }})
+                                        </a></li>
+                                {%endfor%}
                             </ul>
                         {% endif %}
                     </div>

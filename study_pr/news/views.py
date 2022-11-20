@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .serializers import NewsArticlesSerializer
 from .models import NewsArticles, Rubric
 from .forms import AddArticleForm
@@ -102,6 +103,7 @@ class ArticleDelete(SuccessMessageMixin, DeleteView, PermissionRequiredMixin):
 class NewsArticlesViewSet(viewsets.ModelViewSet):
     queryset = NewsArticles.objects.all()
     serializer_class = NewsArticlesSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
 
