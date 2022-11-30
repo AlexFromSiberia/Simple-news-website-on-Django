@@ -5,6 +5,7 @@ from captcha.fields import CaptchaField
 
 
 class AddArticleForm(ModelForm):
+    """Form for creation a new article (Page: Add a news article)"""
     captcha = CaptchaField()
 
     class Meta:

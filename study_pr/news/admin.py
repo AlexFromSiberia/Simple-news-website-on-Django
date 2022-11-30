@@ -6,6 +6,7 @@ from django import forms
 
 
 class NewsArticlesForm(forms.ModelForm):
+    """Adds CKEditor plugin to the news article creation form in admin panel"""
     text = forms.CharField(widget=CKEditorUploadingWidget())
 
     class Meta:
@@ -14,6 +15,7 @@ class NewsArticlesForm(forms.ModelForm):
 
 
 class NewsArticlesAdmin(admin.ModelAdmin):
+    """setting up news articles look """
     form = NewsArticlesForm
     save_as = True
     list_display = ('id', 'title', 'slug', 'date', 'photo', 'thumbnail', 'author', 'rubric')
