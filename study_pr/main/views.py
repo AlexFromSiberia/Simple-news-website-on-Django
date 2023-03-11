@@ -3,11 +3,10 @@ from django.contrib.auth import login
 from .forms import NewUserForm, ContactForm
 from django.contrib import messages
 from news.models import Rubric
-from django.core.mail import send_mail
-# import credentials
 import os
-from pathlib import Path
 from dotenv import load_dotenv
+from .tasks import send_spam_email
+
 load_dotenv()
 
 
@@ -50,11 +49,11 @@ def contacts(request):
             # Put here YOUR e_mail addresses:
             sender_mail = os.getenv('sender_mail')
             receiver_mail = os.getenv('receiver_mail')
-            mail = send_mail(form.cleaned_data['subject'],
-                             form.cleaned_data['content'],
-                             sender_mail,
-                             [receiver_mail],
-                             fail_silently=False)
+            mail = send_spam_email.delay(form.cleaned_data['subject'],
+                                         form.cleaned_data['content'],
+                                         sender_mail,
+                                         receiver_mail
+                                         )
             if mail:
                 messages.success(request, 'The letter has been sent successfully!')
                 return redirect('contacts')
@@ -78,6 +77,3 @@ def page_not_found(request, exception):
 def server_error(request):
     """Will show custom-made 505 error page (BASE_DIR/templates)"""
     return render(request, '500.html', status=500)
-
-
-

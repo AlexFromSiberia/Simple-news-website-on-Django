@@ -2,6 +2,7 @@
 _settings.py
 
 /venv/
+/study_pr/django_cache/
 # Editors
 .vscode/
 .idea/
