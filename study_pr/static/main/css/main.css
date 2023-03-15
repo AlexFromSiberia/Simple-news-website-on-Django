@@ -11,19 +11,16 @@ body {
 aside {
   position: sticky;
   top: 0px;
-
+  width: 203px;
   background: #181818;
   padding: 10px;
-  height: 100vh;
+  height: 270vh;
   color: rgba(209, 209, 209, 0.986);
-  border-right: 1px solid #3a3a3a;
+  border: 1px solid #3a3a3a;
 }
-
-
 
 aside img {
   width: 80px;
-  height: 115px;
   display: block;
   margin: 0 auto;
 }
@@ -54,6 +51,14 @@ aside ul li {
   list-style: none;
 }
 
+.active_a {
+  color: rgb(255, 54, 54);
+  font-weight: bold;
+  text-decoration: none;
+  transform: scale3d(1.1, 1.1, 1.1);
+}
+
+
 aside ul li:hover,
 aside ul a:hover {
   color: rgb(255, 54, 54);
@@ -65,18 +70,17 @@ aside ul a:hover {
 .article {
   border: 1px solid #3a3a3a;
   border-radius: 1%;
-  max-width: 800px;
+  width: 800px;
   margin: 20px auto;
 }
 
-main .features {
-  float: right;
+.features {
   color: rgb(207, 207, 207);
   text-align: center;
   width: 80%;
 }
 
-main .features p,
+.features p,
 h1,
 h2,
 h3 {
@@ -85,15 +89,14 @@ h3 {
   text-align: justify;
 }
 
-main .features h4 {
+.features h4 {
   text-align: left;
 }
 
-main .features h1 {
+.features h1 {
   font-size: 50px;
   color: #f5c236;
   text-align: center;
-  max-width: 800px;
 }
 
 .img-news {
@@ -116,16 +119,36 @@ main .features h1 {
 }
 
 .registration {
-  width: 400px;
-  margin: 20px auto;
+  padding: 0 100px;
   color: rgb(209, 209, 209);
   text-align: left;
-
 }
 
 .registration label {
   font-size: 30px;
 }
+
+.registration p {
+  margin:0;
+}
+
+.registration h2, h3 {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.registration h2 {
+  color: #f5c236;
+  text-align: center;
+}
+
+
+#registration_btn {
+  margin-left: 40%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 
 .delete {
   display: flex;
@@ -139,17 +162,16 @@ main .features h1 {
 
 .sidebar_right {
     position: sticky;
-    top: 400px;
+    top: 0;
+    height: 250vh;
     flex-shrink: 1;
-    margin: 20px auto;
     color: rgba(209, 209, 209, 0.986);
-    margin: 20px;
     padding: 20px;
+    max-width: 300px;
 
   }
 
-
-.sidebar_right h2 {
+.sidebar_right h3 {
     color: #f5c236;
 }
 

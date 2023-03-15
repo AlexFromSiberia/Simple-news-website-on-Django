@@ -1,0 +1,48 @@
+version: '3.8'
+
+volumes:
+    pgdata:
+        driver: local
+services:
+
+    redis:
+        image: redis:latest
+        restart: always
+        ports:
+          - '6379:6379'
+
+    python:
+        restart: always
+        build:
+            context: .
+            dockerfile: docker/python/Dockerfile
+        volumes:
+            - ./study_pr:/srv/www/study_pr
+        command: "gunicorn -c gunicorn.py study_pr.wsgi"
+        depends_on:
+          - redis
+        
+    celery:
+        restart: always
+        build:
+            context: .
+            dockerfile: docker/python/Dockerfile
+        command: "celery -A study_pr worker -l info"
+        depends_on:
+          - redis
+
+    nginx:
+        restart: always
+        image: nginx:latest
+        expose:
+          - 8080
+        ports:
+          - "3001:8080"
+        volumes:
+            - ./study_pr/static:/srv/www/study_pr/static
+            - ./study_pr/media:/srv/www/study_pr/media
+            - ./study_pr/logs:/srv/www/study_pr/logs
+            - ./docker/nginx:/etc/nginx/conf.d
+        depends_on:
+            - python
+
