@@ -3,6 +3,7 @@ from news.models import NewsArticles
 from django.urls import reverse
 
 
+# launch all tests with `python manage.py test`
 # тестируем модель
 class NewsArticlesModelTest(TestCase):
 
